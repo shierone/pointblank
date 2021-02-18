@@ -1,0 +1,268 @@
+/* RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    cursor: none;
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#trigger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+}
+
+#content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+h1, h2 {
+    position: absolute;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+h1 {
+    top: 50%;
+    left: 50%;
+    line-height: 24px;
+    transform: translate(-50%, -50%);
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    opacity: 0;
+}
+
+.flickIn {
+    
+    animation: flickIn 1s forwards;
+}
+
+@keyframes flickIn {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 1 !important;
+    animation: fadeIn 1s ease;
+}
+
+h2 {
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-style: italic;
+    font-size: 22px;
+}
+
+ @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .fadeOut {
+        opacity: 0 !important;
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+
+.circle-wrap {
+    display: none;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    animation: appear 0.7s cubic-bezier(.55,.01,0,1.7) forwards;
+}
+
+.circle {
+        display: block;
+        left: 50%;
+        transform: translateX(-50%) scale(0,0);
+        background-color: #fff;
+        border-radius: 50%;
+        animation: pulsate 0.8s cubic-bezier(.42,.01,.56,1) infinite;
+    }
+
+    
+    .inner {
+        position: absolute;
+        height: 34px;
+        width: 34px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background-color: black;
+
+    }
+
+    .exp {
+        position: relative;
+        width: 50px;
+        height: 50px;
+    }
+
+
+    @keyframes appear {
+        from {
+            transform: translate(-50%, -50%) scale(0,0);
+        }
+        to {
+            transform: translate(-50%, -50%) scale(1,1);
+        }
+    }
+
+    @keyframes pulsate {
+        0% {
+            transform: translateX(-50%) scale(0.97,0.97);
+        }
+
+        50% {
+            transform: translateX(-50%) scale(1.03,1.03);
+        }
+
+        100% {
+            transform: translateX(-50%) scale(0.97, 0.97);
+        }
+    }
+
+#title {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    animation: display 1.75s forwards;
+}
+
+@keyframes display {
+    0% {opacity: 0;}
+    95% {opacity: 0;}
+    100% {opacity: 1}
+}
+
+.pointblank {
+    
+    color: white;
+    font-family: 'Volkhov', serif;
+    font-size: 50px;
+    letter-spacing: 0.2;
+    display: block;
+}
+
+.pronunciation {
+    color: #ffffff65;
+    float: left;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.description {
+    font-family: 'Roboto', sans-serif;
+    float: left;
+    margin-top: 27px;   
+    color: white;
+    font-size: 16px;
+}
+
+i {  
+    display: block;
+    
+    font-size: 14px;
+    margin-bottom: 4px;
+    margin-top: 13px;
+    font-family: 'Volkhov', serif;
+    color: #ffffff85;
+} 
+
+.ahead {
+    display: none;
+    transform: scale(0.6);
+    position: fixed;
+    bottom: 46px;
+    right: 46px;
+}
+
+.hole, .holetwo {
+        animation: shadow 0.2s ease forwards;
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        display: none;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: #fff;
+        border-radius: 50%;
+        transition: transform 1s ease;
+}
+
+@keyframes shadow {
+    from {
+
+        box-shadow: #ffffff75 0px 0px 0px;
+    }
+    to {
+
+        box-shadow: #ffffff75 0px 6px 30px;
+    }
+}
+
+.nose {
+    background: white;
+}
+
+.human {
+    position: absolute;
+    font-family: "Volkhov", serif;
+    font-size: 50px;
+    bottom: 80px;
+    display: none;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+}
+
+.eyeone {
+    transform: translateX(-150px) translateY(-50%) !important;
+}
+

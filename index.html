@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Volkhov&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <title>
+        Point Blank.
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <div id="trigger" onclick="nextSlide();">
+    </div>
+    <div id="content">
+        <div class="hole">
+        </div>
+        <h1 class="start">This is an audio tap-story, inspired by a real event.</h1>
+        <h2 class="caption"></h2>
+        <div class="circle-wrap">
+            <div class="circle exp">
+                <div class="inner"></div>
+            </div>
+        </div>
+        <div id="title">
+            <div class="pointblank">
+                Point-Blank
+            </div>
+            <div class="pronunciation">
+                /ˌpɔɪntˈblæŋk/
+            </div>
+            <div class="description">
+                <i>1.</i>
+                The closest distance between safety and danger.</br>
+                <i>2.</i>
+                A shot fired from very close to its target.</br>
+                <i>3.</i>
+                with a direct aim; directly; straight.
+            </div>
+        </div>
+        <div class="ahead">
+            <div class="circle exp">
+                <div class="inner"></div>
+            </div>
+        </div>
+        <div class="ahead">
+            <div class="circle exp">
+                <div class="inner"></div>
+            </div>
+        </div>
+        <div class="human">
+            HUMAN
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        let slideNr = 0;
+        let slide = {
+            slideNr,
+            h1: "",
+            h2: ""
+        };
+        let audioFile = "";
+        let bgFile = "";
+
+        let h1 = document.querySelector(".start");
+        let h2 = document.querySelector(".caption");
+        let ahead = document.querySelector(".ahead");
+
+        h1.classList.add("fadeIn");
+
+        function nextSlide() {
+            slideNr++;
+
+            if (slideNr > 2) {
+                audioFile = "audios/" + slideNr + ".mp3";
+            }
+
+
+            console.log("slideNr", slideNr);
+
+            let check = 4;
+
+            let audioElement = playAudio(slideNr)
+            function playAudio(object) {
+                let currentAudio = new Audio(audioFile);
+
+                currentAudio.play();
+
+                return currentAudio;
+            }
+
+
+            if (slideNr == 1) {                                                                     // INTRO 2
+
+                document.querySelector(".circle-wrap").style.display = "inline-block";
+
+                slide.h1 = "When you see this symbol, on the bottom-right corner of the page, <br> it means that you can click to go ahead.";
+
+            } else if (slideNr == 2) {                                                              // INTRO 3
+                document.querySelector(".circle-wrap").style.display = "none";
+                slide.h1 = "Click to start.";
+
+            } else if (slideNr == 3) {                                                              // DOOR OPEN + INIZIO BG REVERBERATO
+
+                h2.classList.add("flickIn");
+                bgFile = "audios/bgdry.mp3";
+
+                slide.h1 = "";
+                slide.h2 = "All of you now, get in the van";
+                var goAhead;
+                setTimeout(function () { ahead.style.display = "block" }, 3500);
+
+
+            } else if (slideNr == 4) {
+                ahead.style.display = "none";
+                slide.h2 = "Stay quiet, don't make a move";
+
+                setTimeout(function () { ahead.style.display = "block" }, 10000);
+
+
+            } else if (slideNr == 5) {                                                              //
+
+                ahead.style.display = "none";
+                slide.h2 = "if they find out, they're gonna take you back where you came from.";
+
+                setTimeout(function () { ahead.style.display = "block" }, 3500);
+
+            } else if (slideNr == 6) {
+                // DOOR CLOSING (AFTER 3secs) + Point Blank
+
+                ahead.style.display = "none";
+                document.getElementById("title").style.display = "block";
+                slide.h2 = "";
+
+                setTimeout(function () { ahead.style.display = "block" }, 8000);
+
+            } else if (slideNr == 7) {
+                ahead.style.display = "none";                                                          // STEPS + ENGINE REV   10sec
+                document.getElementById("title").style.display = "none";
+                slide.h2 = "";
+
+                setTimeout(function () { ahead.style.display = "block" }, 16000);
+
+            } else if (slideNr == 8) {                                                              // MAMA
+
+                ahead.style.display = "none";
+                slide.h2 = "-What's happening, mommy? Are we playing hide and seek?";
+
+                setTimeout(function () { ahead.style.display = "block" }, 3000);
+
+            } else if (slideNr == 9) {                                                              // -
+
+                ahead.style.display = "none";
+                slide.h2 = "-Yes baby, it's going to be ok";
+
+                setTimeout(function () { ahead.style.display = "block" }, 3000);
+
+            } else if (slideNr == 10) {                                                              // MAMA
+
+                ahead.style.display = "none";
+                slide.h2 = "But where are they taking us?";
+                setTimeout(function () { ahead.style.display = "block" }, 3000);
+
+            } else if (slideNr == 11) {                                                              // -
+                ahead.style.display = "none";
+                slide.h2 = "To a safe place, my baby.";
+
+                setTimeout(function () { ahead.style.display = "block" }, 3000);
+
+            } else if (slideNr == 12) {
+                ahead.style.display = "none";
+                slide.h2 = "Isn't it safe enough at home?";
+
+                setTimeout(function () { ahead.style.display = "block" }, 3000);
+
+            } else if (slideNr == 13) {                                                              //- 
+
+                ahead.style.display = "none";
+                slide.h2 = "Not for now, love. Not anymore.";
+
+
+                setTimeout(function () { ahead.style.display = "block" }, 3000);
+
+            } else if (slideNr == 14) {                                                               // POLICE
+
+                ahead.style.display = "none";
+                slide.h2 = "";
+
+                setTimeout(function () { ahead.style.display = "block" }, 8000);
+
+            } else if (slideNr == 15) {                                                              // BRAKES + SHOOTING
+
+                ahead.style.display = "none";
+                setTimeout(function () { ahead.style.display = "block" }, 18000);
+
+
+            } else if (slideNr == 16) {                                                              // BAM
+
+                document.querySelector(".hole").style.display = "block";
+                h1.style.marginTop = "50px";
+
+            } else if (slideNr == 17) {
+
+                audioElement.pause();                                                            // We follow orders
+                document.querySelector(".hole").style.display = "block";
+
+                h1.style.marginTop = "110px";
+                slide.h1 = "We follow orders,";
+
+            } else if (slideNr == 18) {                                                              // We draw borders
+                document.querySelector(".hole").style.display = "block";
+
+                h1.style.marginTop = "110px";
+                slide.h1 = "We draw borders,";
+
+            } else if (slideNr == 19) {                                                              // that make us forget
+                document.querySelector(".hole").style.display = "block";
+                h1.style.marginTop = "110px";
+                slide.h1 = "that make us forget";
+
+            } else if (slideNr == 20) {                                                              // that we're all the same:
+                document.querySelector(".hole").style.display = "block";
+                h1.style.marginTop = "110px";
+                slide.h1 = "that we are all the same.";
+
+            } else if (slideNr == 21) {                                                              // HUMAN
+                h1.style.marginTop = "0";
+                document.querySelector(".hole").style.display = "none";
+                document.querySelector('.human').style.display = "none";
+                slide.h1 = "https://nl.wikipedia.org/wiki/Zaak-Mawda_Shawri";
+
+            } else if (slideNr == 22) {
+                h1.style.marginTop = "0 !important";
+                window.location.href = 'https://nl.wikipedia.org/wiki/Zaak-Mawda_Shawri';
+            }
+
+
+            document.querySelector("#content h1").innerHTML = slide.h1;
+            document.querySelector("#content h2").innerHTML = slide.h2;
+
+            if (audioFile != undefined) {
+                let currentBg = new Audio(bgFile);
+                currentBg.play();
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
